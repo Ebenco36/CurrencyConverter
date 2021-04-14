@@ -30,6 +30,8 @@ Route::group(['middleware' => ['jwt.verify']], function() {
 	// TEST
 	Route::post('alertNotification', 'API\CurrencyConverterController@alertNotification');
 	
+	// Current user
+	Route::get('user', 'API\Auth\LoginController@user');
 });
 
 Route::group(['prefix' => 'auth'], function () {
@@ -37,5 +39,3 @@ Route::group(['prefix' => 'auth'], function () {
 	Route::post('register', 'API\Auth\RegisterController@store');
 	
 });
-
-Route::get('user', 'API\Auth\LoginController@user');

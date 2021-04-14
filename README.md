@@ -7,6 +7,61 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
+# AWSAPP 
+<p>
+How to setup (Steps)
+* Unzip the cloned file or pull to your local repository after initializing git in your application directory. git pull origin https://github.com/Ebenco36/CurrencyConverter.git
+* run >composer install
+* Add loanapp to your mysql database and set the corresponding information in the .env file
+* Start your application using the command below in your application directory.
+	php artisan serve
+	php artisan migrate
+	php artisan db:seed
+	
+* Once the command above executes successfully, goto http://120.0.0.1:8000/. .
+  
+* Account can be created by making a post request to http://127.0.0.1:8000/api/auth/register
+	POSTMAN REPRESENTATION (POST)
+	[
+		{"key":"name","value":"Ola","description":null,"type":"text","enabled":true,"equals":true},
+		{"key":"email","value":"ebenco941@gmail.com","description":null,"type":"text","enabled":true,"equals":true},
+		{"key":"password","value":"secret","description":null,"type":"text","enabled":true,"equals":true},
+		{"key":"c_password","value":"secret","description":null,"type":"text","enabled":true,"equals":true}
+	]
+* User can login to generate a token by making a post request to http://127.0.0.1:8000/api/auth/login.
+	POSTMAN REPRESENTATION (POST)
+	[
+		{"key":"email","value":"ebenco941@gmail.com","description":"","type":"text","enabled":true},
+		{"key":"password","value":"secret","description":"","type":"text","enabled":true}
+	]
+
+* Check current user http://127.0.0.1:8000/api/user (GET)
+
+* generate repayment url http://127.0.0.1:8000/api/generate_repayment
+	POSTMAN REPRESENTATION (POST)
+	[
+		{"key":"amount","value":"30000000","description":"","type":"text","enabled":true},
+		{"key":"tenure","value":"12","description":"","type":"text","enabled":true},
+		{"key":"repayment_day","value":"3","description":"","type":"text","enabled":true},
+		{"key":"interest","value":"5","description":"","type":"text","enabled":true}
+	]
+* List of currencies http://127.0.0.1:8000/api/currencies (GET)
+
+
+* Set Base Currency http://127.0.0.1:8000/api/setBaseCurrency (POST)
+	POSTMAN REPRESENTATION (POST)
+	[
+		{"key":"currency","value":"USD","description":"","type":"text","enabled":true},
+		{"key":"compared_to","value":"GBP","description":"","type":"text","enabled":true},
+		{"key":"threshold","value":"1.36","description":"","type":"text","enabled":true}
+	]
+</P>
+
+
+
+
+
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
@@ -76,3 +131,7 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
+
+

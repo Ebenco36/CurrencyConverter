@@ -11,6 +11,7 @@ class CurrencyConverterController extends Controller
 {
 	
 	protected $fixerApi;
+	
 	public function __construct(){
 		
 		$this->fixerApi = new fixerAPI();
